@@ -67,10 +67,13 @@ pub fn test_execute_program(mut prog: &[u8]) -> Result<u64, Error> {
         let insn = get_insn(prog, insn_ptr);
         insn_ptr += 1;
         let _dst = insn.dst as usize;
-        eprintln!("{:?}", insn);
-        eprintln!("{:?}", reg);
+//        eprintln!("{:?}", insn);
+//        eprintln!("{:?}", reg);
         if (insn.opc == EXIT) { return Ok(reg[0]) }
-        reg[_dst] = insn.imm  as u32                                as u64;
+        let f = insn.imm as u32 as u64;
+        assert_eq!(f, 2);
+        reg[_dst] = f; // insn.imm  as u32                                as u64;
+        assert_eq!(reg[_dst], 2);
     }
     unreachable!()
 }
