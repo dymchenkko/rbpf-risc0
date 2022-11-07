@@ -1,14 +1,9 @@
 [package]
-name = "methods-guest"
+name = "execute_test"
 version = "0.1.0"
 edition = "2021"
 
-[workspace]
-
-[build-dependencies]
-risc0-build = "0.11"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-risc0-zkvm-guest = "0.11"
 rbpf = {git = "https://github.com/dymchenkko/rbpf", rev = "e9274de5d6391c641bf996e23660024e73c1902f"}
-execute_test = { path = "../../core" }
